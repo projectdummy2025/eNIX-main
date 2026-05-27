@@ -153,7 +153,7 @@ export function AIChatSheet() {
                   </div>
                   <div className="mt-2 flex flex-wrap justify-center gap-2">
                     {[
-                      "What is ERC-7984?",
+                      "What is Fhenix CoFHE?",
                       "Best yield strategy?",
                       "Audit my contract",
                     ].map((suggestion) => (
