@@ -1,0 +1,14 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc = "0.8.28"
+evm_version = "cancun"
+via_ir = false
+ffi = true
+
+[etherscan]
+arbitrum_sepolia = { key = "${ETHERSCAN_API_KEY}", chain = 421614 }
+
+[rpc_endpoints]
+arbitrum_sepolia = "${RPC_URL}"
