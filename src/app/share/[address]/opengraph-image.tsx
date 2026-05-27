@@ -293,7 +293,7 @@ export default async function OGImage({
             color: "#6b6b75",
           }}
         >
-          Powered by Nox Protocol
+          Powered by Fhenix CoFHE
         </span>
       </div>
     </div>,
