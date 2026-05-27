@@ -97,7 +97,7 @@ export function CompareView() {
           </h1>
           <p className="max-w-2xl text-sm text-muted">
             Pick up to {COMPARE_MAX_SLOTS} vaults from{" "}
-            <span className="font-semibold text-main">Nox Protocol</span> and
+            <span className="font-semibold text-main">Fhenix CoFHE</span> and
             see APY, TVL, and risk laid out next to each other. Best metric in
             each row gets a winner badge — pick your route faster.
           </p>
@@ -142,8 +142,6 @@ export function CompareView() {
         )}
 
         <ComparePromptHint show={!isEmpty} />
-
-        <Footer />
       </main>
       <VaultPickerSheet />
       <DepositSheet />
@@ -389,7 +387,7 @@ function EmptyColumn({ onAdd }: { onAdd: () => void }) {
       <div className="flex flex-col gap-1">
         <span className="text-sm font-semibold text-main">Add vault</span>
         <span className="text-[11px] text-muted">
-          Discover from Nox Protocol
+          Discover from Fhenix CoFHE
         </span>
       </div>
     </button>
@@ -540,20 +538,11 @@ function EmptyState({ onAdd }: { onAdd: () => void }) {
       </button>
       <div className="mt-2 flex flex-wrap items-center justify-center gap-1.5 text-[11px] text-faint">
         <span>Powered by</span>
-        <span className="font-semibold text-muted">Nox Protocol</span>
+        <span className="font-semibold text-muted">Fhenix CoFHE</span>
+        <span>·</span>
+        <span>Best metrics highlighted automatically</span>
       </div>
     </motion.div>
-  );
-}
-
-function Footer() {
-  return (
-    <div className="flex flex-wrap items-center justify-center gap-1.5 text-[11px] text-faint">
-      <span>Vault data live from</span>
-      <span className="font-semibold text-muted">Nox Protocol</span>
-      <span>·</span>
-      <span>Best metrics highlighted automatically</span>
-    </div>
   );
 }
 
