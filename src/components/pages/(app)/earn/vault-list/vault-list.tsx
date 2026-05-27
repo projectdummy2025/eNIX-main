@@ -53,7 +53,7 @@ export function VaultList() {
   const setTvlMinFilter = useExpertStore((state) => state.setTvlMinFilter);
   const selectVault = useExpertStore((state) => state.selectVault);
   const fetchVaults = useExpertStore((state) => state.fetchVaults);
-  const openNoxDepositSheet = useFhenixDepositStore((state) => state.openSheet);
+  const openFhenixDepositSheet = useFhenixDepositStore((state) => state.openSheet);
   const chainsById = useMetaStore((state) => state.chainsById);
   const protocolsByName = useMetaStore((state) => state.protocolsByName);
   const loadMeta = useMetaStore((state) => state.loadMeta);
@@ -187,7 +187,7 @@ export function VaultList() {
 
   function handleDepositClick() {
     if (!selectedVault || !hasValidAmount) return;
-    openNoxDepositSheet({
+    openFhenixDepositSheet({
       vault: selectedVault,
       token,
       chain,
@@ -290,7 +290,7 @@ export function VaultList() {
           ) : hasError ? (
             <ErrorState
               key="error"
-              message={error ?? "Unable to reach Nox Protocol."}
+              message={error ?? "Unable to reach Fhenix vaults."}
             />
           ) : isEmpty ? (
             <EmptyState key="empty" />
