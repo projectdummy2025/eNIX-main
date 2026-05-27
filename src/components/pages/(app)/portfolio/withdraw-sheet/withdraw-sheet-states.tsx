@@ -85,7 +85,7 @@ export function ErrorState({
       </p>
       <p className="mx-auto max-w-xs text-xs text-muted">
         {error ??
-          "Nox Protocol doesn't support an automated exit for this vault yet. Try the protocol's native UI."}
+          "This vault doesn't support an automated exit yet. Try the protocol's native UI."}
       </p>
       <div className="flex gap-2">
         <button
