@@ -40,7 +40,7 @@ export function StrategyPreview() {
         </h3>
         <p className="text-[11px] text-muted">
           Enter an amount to stream the selected vault details live — powered by
-          Nox Protocol.
+          Fhenix CoFHE.
         </p>
       </div>
 
