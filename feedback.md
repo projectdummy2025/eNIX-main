@@ -1,6 +1,6 @@
 # iExec Nox Protocol & Confidential Token - Feedback
 
-## Project: iEx AI - Confidential Yield Vault Aggregator
+## Project: eNIX App - Confidential Yield Vault Aggregator
 
 ### Overall Experience
 
