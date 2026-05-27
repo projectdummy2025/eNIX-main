@@ -13,11 +13,11 @@ const navLinks = [
 const docLinks = [
   {
     label: "Docs",
-    href: "https://docs.iex.ec/nox-protocol/getting-started/welcome",
+    href: "https://docs.fhenix.zone",
   },
   {
-    label: "Nox Protocol",
-    href: "https://docs.iex.ec/nox-protocol/getting-started/welcome",
+    label: "Fhenix CoFHE",
+    href: "https://docs.fhenix.zone",
   },
 ];
 
@@ -37,7 +37,7 @@ export function FooterSection() {
             <div className="flex items-start gap-2">
               <p className="max-w-xs text-sm leading-relaxed text-muted">
                 Join the growing community of DeFi users who keep their
-                positions private with iExec Nox & ChainGPT-powered confidential
+                positions private with Fhenix CoFHE & ChainGPT-powered confidential
                 vaults on Arbitrum.
               </p>
             </div>
