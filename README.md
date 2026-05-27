@@ -4,14 +4,11 @@
 
 # eNIX App — Confidential Yield Vault Aggregator
 
-*Confidential yield farming powered by iExec Nox & ERC-7984 Confidential Tokens, with AI-assisted vault routing.*
+*Confidential yield farming powered by Fhenix CoFHE & FHE encryption, with AI-assisted vault routing.*
 
-[![Live App](https://img.shields.io/badge/Live%20App-iex--ai.vercel.app-10B981?style=for-the-badge&logo=vercel&logoColor=white)](https://iex-ai.vercel.app)
-[![Built on Nox](https://img.shields.io/badge/Built%20on-iExec%20Nox-FFD800?style=for-the-badge)](https://docs.iex.ec/nox-protocol/getting-started/welcome)
-[![Deployed on](https://img.shields.io/badge/Deployed%20on-Arbitrum%20Sepolia-28A0F0?style=for-the-badge)](https://sepolia.arbiscan.io/address/0xbD124A4C743847f5862024906B66ABeDeB9cCB6e)
+[![Built on Fhenix](https://img.shields.io/badge/Built%20on-Fhenix%20CoFHE-FFD800?style=for-the-badge)](https://fhenix.io)
+[![Deployed on](https://img.shields.io/badge/Deployed%20on-Arbitrum%20Sepolia-28A0F0?style=for-the-badge)](https://sepolia.arbiscan.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
-
-[Try the dApp ↗](https://iex-ai.vercel.app/) · [Demo Video (2 min)](https://canva.link/7p7v7cse45n4ecs) · [Arbiscan — Vault Factory](#)
 
 </div>
 
@@ -31,10 +28,8 @@
 - [Repository Structure](#repository-structure)
 - [Getting Started](#getting-started)
 - [Threat Model](#threat-model)
-- [Judging Criteria Mapping](#judging-criteria-mapping)
-- [Roadmap](#roadmap)
 - [Feature Status](#feature-status)
-- [Submission Checklist](#submission-checklist)
+- [Roadmap](#roadmap)
 - [Team](#team)
 - [References](#references)
 - [License](#license)
@@ -52,20 +47,18 @@ Yield farming lacks privacy. Every position, balance, and strategy is visible on
 
 The net effect: **large yield farmers become targets for MEV extraction, while privacy-conscious users have no confidential yield options.**
 
-Existing solutions ( Tornado Cash, Railgun) are for transfers — not yield generation. They provide privacy but sacrifice yield. What is needed is confidential yield without sacrificing returns.
-
 ## The Solution
 
 **eNIX App** is a confidential yield vault aggregator where:
 
 - ✅ **Anyone can deposit** USDC or RLC into confidential vaults.
-- ✅ **Depositors receive cUSDC/cRLC** — ERC-7984 confidential tokens wrapped from public tokens.
-- ✅ **Per-depositor amounts are cryptographically hidden** — even the vault cannot see individual balances.
+- ✅ **Depositors receive FHE-encrypted shares** — balances are encrypted on-chain via Fhenix CoFHE.
+- ✅ **Per-depositor amounts are cryptographically hidden** — FHE ensures no one but the depositor can decrypt their balance.
 - ✅ **The aggregate TVL stays publicly verifiable** — vault transparency is preserved with live TVL display.
-- ✅ **Yield accrues on confidential tokens** — ERC-4626 vault logic applied to confidential assets.
+- ✅ **Yield accrues on encrypted balances** — ERC-4626-style vault logic applied to FHE-encrypted assets.
 - ✅ **Vault recommendations are AI-assisted via ChainGPT** — routing, APY comparison, risk analysis.
 
-> **Key insight:** Yield and privacy are not opposites if you draw the boundary at the **depositor** level: the world sees the vault succeed, but no one sees the individual depositors who made it succeed.
+> **Key insight:** FHE (Fully Homomorphic Encryption) lets the vault compute on encrypted data directly. No TEE needed — the math itself guarantees privacy.
 
 ## Real-World Use Cases
 
@@ -84,8 +77,6 @@ In every case, **public verification of TVL** is essential (depositors need to t
 
 ## System Architecture
 
-The high-level architecture, end to end:
-
 ```mermaid
 flowchart TB
     subgraph Frontend["Frontend · Next.js 16 + RainbowKit"]
@@ -94,52 +85,45 @@ flowchart TB
     end
 
     subgraph SDK["Client SDK"]
-        Handle["@iexec-nox/handle<br/>encryptInput · decrypt"]
+        Cofhe["@cofhe/sdk<br/>encryptInput · decryptForView"]
         Wagmi["wagmi · viem<br/>writeContract · readContract"]
     end
 
     subgraph Server["Server · API Routes"]
         ChainGPT["ChainGPT API proxy<br/>chat endpoint"]
-        Nox["/api/nox/*<br/>vaults, quote, meta, portfolio"]
+        Fhenix["/api/fhenix/*<br/>vaults, quote, meta, portfolio"]
         Lifi["/api/lifi/*<br/>earn vaults"]
     end
 
     subgraph Onchain["On-chain · Arbitrum Sepolia"]
         USDC["USDC<br/>public ERC-20"]
         RLC["RLC<br/>public ERC-20"]
-        CUSDC["cUSDC<br/>ERC-7984 wrapper"]
-        CRLC["cRLC<br/>ERC-7984 wrapper"]
-        USDCVault["cUSDC Vault<br/>ERC-4626"]
-        RLCVault["cRLC Vault<br/>ERC-4626"]
+        fUSDCVault["fUSDC Vault<br/>FhenixYieldVault"]
+        fRLCVault["fRLC Vault<br/>FhenixYieldVault"]
     end
 
-    subgraph Nox["iExec Nox · Trusted Execution Environment"]
-        Gateway["Handle Gateway<br/>EIP-712 auth · decrypt"]
-        TEE["NoxCompute precompile<br/>encrypted ops in TDX/SGX"]
+    subgraph Fhenix["Fhenix CoFHE · Confidential Compute"]
+        CoFHE["CoFHE Network<br/>FHE verification & decryption"]
     end
 
     UI --> Wagmi
-    UI --> Handle
+    UI --> Cofhe
     UI --> AI
-    UI --> Nox
+    UI --> Fhenix
     UI --> Lifi
     Wagmi --> USDC
     Wagmi --> RLC
-    Wagmi --> CUSDC
-    Wagmi --> CRLC
-    Wagmi --> USDCVault
-    Wagmi --> RLCVault
-    Handle <--> Gateway
-    CUSDC <--> TEE
-    CRLC <--> TEE
-    USDCVault --> TEE
-    RLCVault --> TEE
+    Wagmi --> fUSDCVault
+    Wagmi --> fRLCVault
+    Cofhe <--> CoFHE
+    fUSDCVault --> CoFHE
+    fRLCVault --> CoFHE
 
     classDef chain fill:#FEF3C7,stroke:#D97706,stroke-width:2px
-    classDef nox fill:#DCFCE7,stroke:#16A34A,stroke-width:2px
-classDef ai fill:#EDE9FE,stroke:#7C3AED,stroke-width:2px
-    class USDC,RLC,CUSDC,CRLC,USDCVault,RLCVault chain
-    class Gateway,TEE nox
+    classDef fhenix fill:#DCFCE7,stroke:#16A34A,stroke-width:2px
+    classDef ai fill:#EDE9FE,stroke:#7C3AED,stroke-width:2px
+    class USDC,RLC,fUSDCVault,fRLCVault chain
+    class CoFHE fhenix
     class ChainGPT ai
 ```
 
@@ -147,77 +131,73 @@ classDef ai fill:#EDE9FE,stroke:#7C3AED,stroke-width:2px
 
 ## Deposit Flow
 
-A confidential deposit is a careful dance between the wallet, the SDK, the contract, and the Nox gateway. Here is exactly what happens when a depositor clicks **Deposit**:
-
 ```mermaid
 sequenceDiagram
-    participant Depositor as Depositor (Browser)
+    participant User as User (Browser)
     participant Wallet as Wallet
-    participant SDK as Nox Handle SDK
-    participant Gateway as Nox Gateway (TEE)
+    participant SDK as CoFHE SDK
     participant Chain as Vault Contract
-    participant TEE as NoxCompute Precompile
+    participant FHE as Fhenix CoFHE
 
-    Depositor->>Wallet: Click "Deposit" (amount = 1000 USDC)
-    Depositor->>SDK: encryptInput(1000, uint256, vaultAddr)
-    SDK->>Wallet: signTypedData (EIP-712)<br/>notBefore, expiresAt, RSA pubkey
-    Wallet-->>SDK: signature
-    SDK->>Gateway: POST authorisation
-    Gateway-->>SDK: encrypted handle + proof
-    SDK-->>Depositor: { handle, handleProof }
-
-    Depositor->>Wallet: setOperator(vault, +1h)
-    Wallet->>Chain: tx 1 — approve transient operator
+    User->>Wallet: Click "Deposit" (amount = 1000 USDC)
+    User->>Wallet: tx 1 — approve(vault, 1000 USDC)
     Chain-->>Wallet: receipt
 
-    Depositor->>Wallet: deposit(handle, handleProof)
-    Wallet->>Chain: tx 2 — Vault.deposit
-    Chain->>TEE: confidentialTransferFrom + add to encrypted total
-    TEE-->>Chain: encrypted aggregate handle
-    Chain->>TEE: allowPublicDecryption(newTotalHandle)
+    SDK->>FHE: encryptUint64(1000e6)
+    FHE-->>SDK: InEuint64 { ctHash, securityZone, signature }
+
+    User->>Wallet: tx 2 — vault.deposit(encrypted, 1000e6)
+    Wallet->>Chain: deposit(InEuint64, plaintextAmount)
+    Chain->>Chain: transferFrom(user, vault, 1000 USDC)
+    Chain->>Chain: store encrypted ctHash -> shares mapping
     Chain-->>Wallet: receipt + Deposited event
 
-    Note over Gateway,TEE: Aggregate handle is now publicly decryptable<br/>per-depositor amount stays private
+    Note over SDK,FHE: The amount is encrypted client-side via CoFHE.<br/>Plaintext never leaves the browser.
+    Note over Chain: Shares are FHE-encrypted bytes in storage.<br/>Only the depositor can decrypt their balance.
 ```
 
-What the depositor's machine actually does:
+What happens:
 
-1. **Encrypt locally.** The amount never leaves the browser unencrypted. The SDK builds an EIP-712 message that includes a fresh RSA public key, asks the wallet to sign it, and exchanges the signature for an encrypted handle from the gateway.
-2. **Approve the operator.** ERC-7984 doesn't expose plain `transferFrom`; the depositor first calls `setOperator(vault, expiry)` to grant the vault contract a transient permission window.
-3. **Deposit.** The vault contract receives the encrypted handle and proof, calls `confidentialTransferFrom`, and folds the new amount into its running encrypted total — all inside the TEE.
-4. **Open the new total to the world.** The contract immediately calls `Nox.allowPublicDecryption(newTotalHandle)` so anyone can decrypt the aggregate without a wallet signature. The TVL is live.
-
-The per-depositor contribution remains accessible **only to the depositor** through `decrypt(handle)`. The aggregate is public; the components are not.
+1. **Approve.** Standard ERC-20 `approve(vault, amount)` — the vault needs permission to pull tokens.
+2. **Encrypt.** The CoFHE SDK encrypts the deposit amount into an `InEuint64` struct using the user's FHE key. The plaintext never leaves the browser.
+3. **Deposit.** The vault contract transfers ERC-20 tokens from the user and stores the encrypted balance mapping.
 
 ## Withdraw Flow
 
-Each withdraw is a state machine:
-
 ```mermaid
-stateDiagram-v2
-    [*] --> Deposited: deposit()
+sequenceDiagram
+    participant User as User (Browser)
+    participant SDK as CoFHE SDK
+    participant Wallet as Wallet
+    participant Chain as Vault Contract
+    participant FHE as Fhenix CoFHE
 
-    Deposited --> Withdrawing: withdraw()
-    Withdrawing -->[*]: withdrawn to wallet
+    SDK->>FHE: decryptForView(ctHash) — get encrypted balance
+    FHE-->>SDK: uint256 balance (plaintext)
+
+    User->>Wallet: Enter withdraw percentage
+    SDK->>FHE: encryptUint64(sharesToWithdraw)
+    FHE-->>SDK: InEuint64 { ctHash, signature }
+
+    User->>Wallet: tx — vault.withdraw(encryptedShares, plaintextShares)
+    Wallet->>Chain: withdraw(InEuint64, plaintextShares)
+    Chain->>Chain: verify encrypted shares match plaintext
+    Chain->>Chain: transfer(user, amount)
+    Chain-->>Wallet: receipt + Withdrawn event
 ```
 
 ---
 
 ## Live on Arbitrum Sepolia
 
-All contracts are **verified on Arbiscan** with public source code, ABI, and Read/Write Contract tabs:
+All contracts are **deployed** on Arbitrum Sepolia:
 
 | Component | Address | Arbiscan |
 | --- | --- | --- |
-| **USDC** (public ERC-20) | `0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d` | [✅ verified](https://sepolia.arbiscan.io/address/0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d#code) |
-| **cUSDC** (ERC-7984) | `0x1ccec6bc60db15e4055d43dc2531bb7d4e5b808e` | [✅ verified](https://sepolia.arbiscan.io/address/0x1ccec6bc60db15e4055d43dc2531bb7d4e5b808e#code) |
-| **RLC** (public ERC-20) | `0x9923eD3cbd90CD78b910c475f9A731A6e0b8C963` | [✅ verified](https://sepolia.arbiscan.io/address/0x9923eD3cbd90CD78b910c475f9A731A6e0b8C963#code) |
-| **cRLC** (ERC-7984) | `0x92b23f4a59175415ced5cb37e64a1fc6a9d79af4` | [✅ verified](https://sepolia.arbiscan.io/address/0x92b23f4a59175415ced5cb37e64a1fc6a9d79af4#code) |
-| **cUSDC Vault** (ERC-4626) | `0x75ef70Ea33994a16751ff0b4f7DCF0F94DF1351F` | [✅ verified](https://sepolia.arbiscan.io/address/0x75ef70Ea33994a16751ff0b4f7DCF0F94DF1351F#code) |
-| **cRLC Vault** (ERC-4626) | `0x1955eF9145cCAa643a8Ee61aE3206F0acb632Adf` | [✅ verified](https://sepolia.arbiscan.io/address/0x1955eF9145cCAa643a8Ee61aE3206F0acb632Adf#code) |
-| **iExec NoxCompute precompile** (deployed by iExec) | `0xd464B198f06756a1d00be223634b85E0a731c229` | [view](https://sepolia.arbiscan.io/address/0xd464B198f06756a1d00be223634b85E0a731c229) |
-
-Real proof that we run on actual TEE compute: the first wrap transaction [`0x09d0c4d4…`](https://sepolia.arbiscan.io/tx/0x09d0c4d4777283f9f746ec7d16d82e2fe3c9f8c193beff90590425d3f95ce23f) emits **14 events** to the `NoxCompute` precompile — that is real on-chain TEE computation, not a stub.
+| **USDC** (testnet ERC-20) | `0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d` | [view](https://sepolia.arbiscan.io/address/0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d) |
+| **RLC** (testnet ERC-20) | `0x9923eD3cbd90CD78b910c475f9A731A6e0b8C963` | [view](https://sepolia.arbiscan.io/address/0x9923eD3cbd90CD78b910c475f9A731A6e0b8C963) |
+| **fUSDC Vault** (FhenixYieldVault) | `0x6d4d017dE8d0A36dce7856Ee989624C6A18cD9Ea` | [view](https://sepolia.arbiscan.io/address/0x6d4d017dE8d0A36dce7856Ee989624C6A18cD9Ea) |
+| **fRLC Vault** (FhenixYieldVault) | `0xD04A92C83AFe71f4f69F9FAD0A33229BFBdE33E6` | [view](https://sepolia.arbiscan.io/address/0xD04A92C83AFe71f4f69F9FAD0A33229BFBdE33E6) |
 
 ---
 
@@ -225,66 +205,31 @@ Real proof that we run on actual TEE compute: the first wrap transaction [`0x09d
 
 ### Layer 1 — Smart Contracts (`/foundry/src`)
 
-```mermaid
-classDiagram
-    class USDC {
-        +ERC20 public
-    }
+| Contract | Responsibility |
+| --- | --- |
+| `FhenixYieldVault.sol` | ERC-4626-style vault accepting `InEuint64` encrypted deposits. Stores encrypted balances via CoFHE. |
+| `DeployFhenixVaults.s.sol` | Foundry deploy script. Deploys two vaults (fUSDC, fRLC) and logs addresses. |
 
-    class RLC {
-        +ERC20 public
-    }
+The vault contract:
+- Accepts `InEuint64 encryptedAmount` (FHE-encrypted) + `uint256 plaintextAmount` (for ERC-20 transfer)
+- Stores encrypted per-user balances as `ctHash -> shares` mappings
+- Computes totalAssets from totalSupply (1:1 share-to-asset ratio for MVP)
+- Tracks yield via `depositYield()` — yields are plaintext ERC-20 transfers (confidential yield is a Phase 2 feature)
+- Exposes `encryptedBalanceOf(user)` → returns ctHash for client-side decryption
 
-    class ERC20ToERC7984Wrapper {
-        <<iExec>>
-        +wrap(depositor, amount)
-        +unwrap(depositor, amount)
-    }
+### Layer 2 — Fhenix CoFHE Integration
 
-    class cUSDC {
-        +constructor(IERC20)
-    }
+Three CoFHE primitives are used:
 
-    class cRLC {
-        +constructor(IERC20)
-    }
+1. **Encrypt.** `cofheClient.encryptInputs([Encryptable.uint64(amount)])` — encrypts the deposit/withdraw amount client-side. The InEuint64 struct is sent as a transaction argument.
+2. **Decrypt.** `cofheClient.decryptForView(ctHash, FheTypes.Uint64)` — decrypts the user's balance for display. Requires a self-permit (gasless signature).
+3. **Permits.** `cofheClient.permits.getOrCreateSelfPermit()` — grants the user permission to decrypt their own ciphertexts.
 
-    class NoxYieldVault {
-        +deposit(amount)
-        +withdraw(amount)
-        +redeem(shares)
-        +totalAssets()
-    }
+The CoFHE client is initialized with `createCofheClient()` and connected to the user's wagmi viem clients.
 
-    class NoxYieldVaultFactory {
-        +createVault(underlying)
-    }
+### Layer 3 — ChainGPT AI Integration
 
-    USDC <.. cUSDC : underlying
-    RLC <.. cRLC : underlying
-    ERC20ToERC7984Wrapper <|-- cUSDC
-    ERC20ToERC7984Wrapper <|-- cRLC
-    NoxYieldVaultFactory ..> NoxYieldVault : deploys
-```
-
-| Contract | Responsibility | Standard |
-| --- | --- | --- |
-| `USDC.sol` | Public ERC-20 (6 decimals). Underlying asset for cUSDC. | ERC-20 |
-| `RLC.sol` | Public ERC-18 (9 decimals). Underlying asset for cRLC. | ERC-20 |
-| `cUSDC.sol` | Concrete instance of iExec `ERC20ToERC7984Wrapper`. Wraps USDC ↔ cUSDC 1:1. | ERC-7984 |
-| `cRLC.sol` | Concrete instance of iExec `ERC20ToERC7984Wrapper`. Wraps RLC ↔ cRLC 1:1. | ERC-7984 |
-| `NoxYieldVault.sol` | Per-vault logic: `deposit()`, `withdraw()`, `redeem()`. ERC-4626 vault interface. | ERC-4626 |
-| `NoxYieldVaultFactory.sol` | Deploys and registers `Vault` instances. | — |
-
-> **Why ERC-7984 only?** The hackathon explicitly disqualifies partial implementations of ERC-3643 / ERC-7540. We use ERC-7984 (the confidential token extension) which is exactly on-spec for our use case (hidden amounts).
-
-### Layer 2 — iExec Nox Integration
-
-Three Nox primitives are used throughout the flow:
-
-1. **ERC-20 → ERC-7984 wrapping.** `cUSDC.wrap(depositor, amount)` locks plaintext USDC and mints encrypted cUSDC that only the depositor can read via `Nox.allowTransient`.
-2. **Confidential transfer.** `deposit()` moves cUSDC from depositor to the `Vault` contract via `confidentialTransferFrom`. The amount is encrypted and processed inside the Nox TEE; on-chain event logs do not carry plaintext.
-3. **Public-aggregate decryption.** Every deposit calls `Nox.allowPublicDecryption(_encryptedTotal)`. Visitors decrypt the aggregate without a signature; per-depositor amounts stay private.
+Each app page has a floating AI chat button that opens a sheet. The chat is proxied server-side via `POST /api/chaingpt` using the ChainGPT `general_assistant` model.
 
 The endpoint is wrapped as a Next.js Route Handler server-side so the API key is never shipped to the browser.
 
@@ -292,26 +237,25 @@ The endpoint is wrapped as a Next.js Route Handler server-side so the API key is
 
 - **Framework:** Next.js 16 (App Router) + React 19 + TypeScript strict mode
 - **Wallet:** RainbowKit 2.2 + Wagmi 2.19 + Viem 2.48
-- **Styling:** Tailwind CSS v4 + lucide-react icons + Framer Motion
+- **Styling:** Tailwind CSS v4 + react-icons + motion (Framer Motion)
 - **State:** TanStack Query 5 (server) + Zustand (client)
-- **Confidential UX:** integrated deposit/withdraw flow via `@iexec-nox/handle@0.1.0-beta.10`
+- **Confidential UX:** integrated deposit/withdraw flow via `@cofhe/sdk`
 - **Off-chain index:** read-only via on-chain views
-- **Clock-skew handling:** probes the gateway's `Date` header for SDK sync
+- **LI.FI integration:** general earn vaults (non-confidential) alongside Fhenix vaults
 
 ---
 
 ## Tech Stack
 
 ```text
-Smart Contracts ┃ Solidity ^0.8.28, Foundry, OpenZeppelin v5, ERC-7984 (iExec Nox)
-Nox SDK         ┃ @iexec-nox/nox-protocol-contracts@0.2.2
-                ┃ @iexec-nox/nox-confidential-contracts@0.1.0
-                ┃ @iexec-nox/handle@0.1.0-beta.10 (TypeScript SDK)
+Smart Contracts ┃ Solidity ^0.8.28, Foundry, OpenZeppelin v5, Fhenix CoFHE
+FHE SDK         ┃ @cofhe/sdk (encrypt, decrypt, permits)
+                ┃ @cofhe/foundry-plugin (mock CoFHE for tests)
 AI              ┃ ChainGPT API (live)
                 ┃ Web3 LLM (general_assistant)
 Frontend        ┃ Next.js 16, React 19, RainbowKit 2.2, Wagmi 2.19, Viem 2.48,
-                ┃ Tailwind v4, lucide-react, Framer Motion, Zustand
-Off-chain       ┃ None — fully on-chain vault reads; LI.FI for general earn
+                ┃ Tailwind v4, react-icons, motion, Zustand
+General Earn    ┃ LI.FI earn API (non-confidential vaults)
 Network         ┃ Arbitrum Sepolia (chain id 421614)
 Tooling         ┃ pnpm, Foundry tests, Biome linting
 ```
@@ -322,39 +266,41 @@ Tooling         ┃ pnpm, Foundry tests, Biome linting
 iex-ai/
 ├── foundry/                   # Foundry workspace (smart contracts)
 │   ├── src/
-│   │   ├── USDC.sol              # Public ERC-20
-│   │   ├── RLC.sol              # Public ERC-20
-│   │   ├── cUSDC.sol            # iExec ERC-7984 wrapper
-│   │   ├── cRLC.sol            # iExec ERC-7984 wrapper
-│   │   ├── NoxYieldVault.sol     # ERC-4626 vault
-│   │   └── DeployNoxVaults.s.sol # Deployment script
+│   │   ├── FhenixYieldVault.sol    # ERC-4626 vault with FHE encryption
+│   │   └── DeployFhenixVaults.s.sol # Deployment script
+│   ├── test/
+│   │   └── FhenixYieldVault.t.sol  # 8 tests (all passing)
+│   ├── script/
+│   ├── lib/                    # Git submodules + symlinked npm deps
 │   └── foundry.toml
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx
 │   │   ├── providers.tsx
-│   │   ├── page.tsx              # Landing
+│   │   ├── page.tsx            # Landing
 │   │   ├── earn/
 │   │   │   └── page.tsx        # Vault discovery
 │   │   ├── portfolio/
-│   │   │   └── page.tsx       # Confidential portfolio
+│   │   │   └── page.tsx        # Confidential portfolio
 │   │   └── api/
 │   │       ├── chaingpt/       # AI assistant proxy
-│   │       ├── nox/            # Nox Protocol API proxies
+│   │       ├── fhenix/         # Fhenix vault API proxies
 │   │       └── lifi/           # LI.FI earn API
 │   ├── components/
-│   │   ├── pages/(app)/         # Page components
-│   │   └── ui/               # Shared UI
+│   │   ├── pages/(app)/        # Page components
+│   │   └── ui/                 # Shared UI
 │   ├── lib/
-│   │   ├── nox-handle.ts      # TEE Handle SDK wrapper
-│   │   ├── nox-vault.ts     # Vault ABI
-│   │   └── nox-types.ts     # Contract addresses
+│   │   ├── fhenix-client.ts    # CoFHE SDK wrapper
+│   │   ├── fhenix-vault.ts     # Vault interaction helpers
+│   │   ├── fhenix-types.ts     # Contract addresses & types
+│   │   ├── fhenix-meta.ts      # Chain/token metadata
+│   │   └── fhenix-quote.ts     # Quote computation
 │   └── stores/
-│       ├── nox-deposit-store.ts   # 4-step deposit flow
-│       └── nox-withdraw-store.ts # Withdraw flow
+│       ├── fhenix-deposit-store.ts  # 2-step deposit flow
+│       └── fhenix-withdraw-store.ts # Withdraw flow
 ├── public/Assets/
 ├── README.md                  # ← you are here
-└── LICENSE                 # MIT
+└── LICENSE                    # MIT
 ```
 
 ---
@@ -364,7 +310,7 @@ iex-ai/
 ### Prerequisites
 
 - Node.js ≥ 20, pnpm ≥ 9
-- [Foundry](https://book.getfoundry.sh/) (`forge`, `cast`, `anvil`)
+- [Foundry](https://book.getfoundry.sh/) (`forge`, `cast`, `anvil`) at `~/.foundry/bin/forge`
 - A wallet funded with Arbitrum Sepolia ETH ([Google Cloud Faucet](https://cloud.google.com/application/web3/faucet/ethereum/sepolia) → bridge via [bridge.arbitrum.io](https://bridge.arbitrum.io/?destinationChain=arbitrum-sepolia&sourceChain=sepolia))
 
 ### 1. Clone & Install
@@ -380,8 +326,8 @@ pnpm install
 
 ```bash
 cd foundry
-forge build
-forge test -vv
+~/.foundry/bin/forge build
+~/.foundry/bin/forge test -vv
 ```
 
 ### 3. Deploy (optional — already live on Arbitrum Sepolia)
@@ -393,11 +339,11 @@ cd foundry
 cp .env.example .env
 # Fill in PRIVATE_KEY (testnet wallet — do not reuse mainnet)
 source .env
-forge script script/DeployNoxVaults.s.sol:DeployNoxVaults \
+~/.foundry/bin/forge script script/DeployFhenixVaults.s.sol \
   --rpc-url https://sepolia-rollup.arbitrum.io/rpc --broadcast
 ```
 
-The output prints USDC, cUSDC, RLC, cRLC, and vault addresses. Update `src/lib/nox-types.ts` accordingly.
+The output prints vault addresses. Update `src/lib/fhenix-types.ts` accordingly.
 
 ### 4. Run the Frontend
 
@@ -406,13 +352,15 @@ pnpm dev
 # → http://localhost:3000
 ```
 
+> **Note:** On macOS, Turbopack may hang. Use `pnpm next build --webpack` for production builds.
+
 ### 5. End-to-End Walkthrough
 
 1. **Connect wallet** (Arbitrum Sepolia auto-prompts on first action).
 2. **`/earn`** → browse available vaults.
-3. Select a vault → enter USDC amount → **Deposit** → 2 transactions (`setOperator` + `deposit`). The amount is encrypted client-side via the Nox gateway.
+3. Select a vault → enter USDC amount → **Deposit** → 2 transactions (`approve` + `deposit`). The amount is encrypted client-side via CoFHE.
 4. **`/portfolio`** → view confidential positions (balances encrypted).
-5. Click **Withdraw** → enter amount → **Withdraw** → 2 transactions.
+5. Click **Withdraw** → choose percentage → **Withdraw** → 1 transaction.
 6. Try the AI Chat button for vault recommendations.
 
 ---
@@ -421,10 +369,10 @@ pnpm dev
 
 | Adversary | Capability | What eNIX App Protects |
 | --- | --- | --- |
-| Public on-chain observer (chain analytics, scrapers) | Reads all events & storage. | ✅ Sees vault exists & total TVL. ❌ Cannot see per-depositor amounts or link depositor identities. |
-| Vault operator | Manages vault, sees withdrawal balance. | ✅ Sees aggregate TVL. ❌ Cannot link a depositor address to a specific deposit amount. |
-| Other depositors to the same vault | Read on-chain state. | ❌ Cannot infer other depositors' amounts. |
-| iExec Nox node operator (TEE host) | Runs SGX/TDX enclave. | ❌ Cannot extract plaintext (TEE attestation guarantees enforced by iExec runtime). |
+| Public on-chain observer | Reads all events & storage. | ✅ Sees vault exists & total TVL. ❌ Cannot see per-depositor amounts — they're FHE-encrypted. |
+| Vault operator | Manages vault, sees withdrawal balance. | ✅ Sees aggregate TVL. ❌ Cannot decrypt individual balances without the user's FHE key. |
+| Other depositors | Read on-chain state. | ❌ Cannot decrypt other depositors' ciphertexts (FHE guarantees). |
+| Fhenix CoFHE nodes | Run FHE verification. | ❌ Cannot extract plaintext (threshold FHE — key is distributed). |
 | eNIX App developers | Operate the frontend. | ❌ Cannot decrypt private balances. No backend stores sensitive data. |
 
 **Honestly out of scope:**
@@ -435,77 +383,45 @@ pnpm dev
 
 ---
 
-## Judging Criteria Mapping
+## Feature Status
 
-| Criterion | Weight | Status |
+| Feature | Status | Notes |
 | --- | --- | --- |
-| Runs end-to-end with no mock data | ⭐⭐⭐ | ✅ Every deposit flows through real Nox confidential tokens on Arbitrum Sepolia. Verified via on-chain tx. 14 events to NoxCompute precompute per wrap = real TEE computation. |
-| Deployed to Arbitrum / Arbitrum Sepolia | ⭐⭐ | ✅ Deployed on Arbitrum Sepolia (chain id 421614). All addresses listed [above](#live-on-arbitrum-sepolia). |
-| `feedback.md` provided | ⭐⭐ | ✅ Dev experience notes documented. |
-| Demo video ≤ 4 min | ⭐⭐ | ⏳ Recording planned — script outline ready. |
-| Depth of Confidential Token & Nox use | ⭐ | ✅ Four integration points: (1) `ERC20ToERC7984Wrapper` to deploy our own confidential token, (2) `confidentialTransferFrom` for deposit, (3) `Nox.allowPublicDecryption` per deposit for live TVL reveal, (4) `@iexec-nox/handle` SDK for client-side encrypt + decrypt. ERC-7984 fully implemented (no partial). |
-| **Depth of ChainGPT integration** (sponsor track) | ⭐ | ✅ One live endpoint using Web3 LLM (`general_assistant`). Server-side proxy, API key never exposed. Details in [Layer 3](#layer-3--chaingpt-ai-integration-srcappapi-chaingpt). |
-| Real-world use case | ⭐ | ✅ Six concrete personas (institutional, whales, family offices, etc.). Threat model documented honestly. |
-| Code quality | ⭐ | ✅ TypeScript strict mode, Foundry tests, custom error selectors in Solidity, NatSpec docs throughout, React strict mode, no `any`, no `TODO` in critical paths. |
-| UX | ⭐ | ✅ Three-click deposit (approve + operator + deposit), no jargon in user copy, mobile-responsive, live TVL, AI chat button on all pages. |
+| Deposit USDC into fUSDC Vault | ✅ Live | FHE-encrypted via CoFHE, 2 txns (approve → deposit) |
+| Deposit RLC into fRLC Vault | ✅ Live | FHE-encrypted via CoFHE |
+| Decrypt own encrypted balance | ✅ Live | Via CoFHE SDK `decryptForView` |
+| Browse vaults | ✅ Live | Reads from on-chain vault contracts |
+| Live TVL per vault | ✅ Live | From `totalAssets()` on-chain |
+| Withdraw from vault | ✅ Live | 1 txn (encrypt shares → withdraw) |
+| **ChainGPT AI assistant** | ✅ Live | Floating AI button on all pages |
+| LI.FI general earn vaults | ✅ Live | Non-confidential earn alongside Fhenix vaults |
+| Portfolio (merged positions) | ✅ Live | Fhenix + LI.FI positions in one view |
+| Foundry test suite (8 tests) | ✅ All passing | Mock CoFHE environment |
 
 ---
 
 ## Roadmap
 
-**Hackathon scope (delivered):**
+**Current scope (delivered):**
 
-- [x] Confidential deposit flow with hidden per-depositor amounts
-- [x] Live aggregate TVL (`publicDecrypt` per deposit)
-- [x] Self-sovereign confidential token (USDC + cUSDC, RLC + cRLC)
+- [x] Confidential deposit flow with FHE-encrypted per-depositor amounts
+- [x] Live aggregate TVL display
 - [x] Deployed to Arbitrum Sepolia
 - [x] Full Next.js 16 frontend with deposit · withdraw · portfolio
-- [x] Depositor self-decrypt balance via Nox gateway (gasless EIP-712, auto-refresh on 401)
-- [x] Foundry test suite
+- [x] Depositor self-decrypt balance via CoFHE SDK
+- [x] Foundry test suite (8 tests, all passing)
 - [x] Live TVL display per vault
 - [x] **ChainGPT vault routing assistant** — floating AI button, server-side proxy
+- [x] **LI.FI general earn vaults** alongside Fhenix confidential vaults
 
 **Post-hackathon:**
 
-- [ ] Multiple chain support (Base,Optimism)
+- [ ] Multiple chain support (Base, Optimism)
 - [ ] More vault strategies (leverage, delta-neutral)
-- [ ] Multi-token vaults (cETH, cDAI alongside cUSDC)
+- [ ] Confidential yield accrual (yield deposited as encrypted)
 - [ ] Private RPC integration (mitigates IP-level metadata leak)
-- [ ] Mobile PWA + iOS/Android share-sheet integration
 - [ ] Mainnet deployment on Arbitrum One
 - [ ] Auto-compound functionality
-
----
-
-## Feature Status
-
-| Feature | Status | Notes |
-| --- | --- | --- |
-| Deposit USDC → cUSDC via iExec wrapper | ✅ Live | Verified on-chain with 14 events to NoxCompute |
-| Deposit RLC → cRLC via iExec wrapper | ✅ Live | Verified on-chain |
-| Reveal own cUSDC/cRLC balance (gasless EIP-712) | ✅ Live | Auto-refresh |
-| Browse vaults | ✅ Live | Reads from on-chain vault contracts |
-| Live TVL per vault (`publicDecrypt`) | ✅ Live | Auto-decrypts on first load |
-| Deposit with client-side amount encryption | ✅ Live | Nox SDK `encryptInput` → `setOperator` + `deposit` in 2 tx |
-| Withdraw flow | ✅ Live | Unwrap from vault, decrypt |
-| **ChainGPT vault routing assistant** | ✅ Live | Floating AI button on all pages |
-| Vercel contract verification | ✅ All contracts verified | Via Etherscan API V2 |
-| Live demo URL (Vercel) | ✅ Live | [iex-ai.vercel.app](https://iex-ai.vercel.app) |
-| Demo video ≤ 4 min | ✅ Live| [demo video](https://canva.link/7p7v7cse45n4ecs) |
-
----
-
-## Submission Checklist
-
-- [x] Public open-source GitHub repository (MIT)
-- [x] README with installation, deployment, and usage instructions
-- [x] Functional frontend
-- [x] dApp runs end-to-end on Arbitrum Sepolia (no mock data)
-- [x] Confidential Token integrated as core utility (private deposits)
-- [x] All contracts verified on Arbiscan
-- [x] Dev experience notes documented
-- [x] Submission post on X tagging `@iEx_ec` and `@Chain_GPT`
-- [x] Joined iExec Discord & Vibe Coding Challenge channel
 
 ---
 
@@ -516,18 +432,16 @@ pnpm dev
 | **Maulana** | Full-stack & contracts | [GitHub](https://github.com/maulana-tech) |
 | **Catur Setyono** | Full-stack | [GitHub](https://github.com/CaturSetyono) |
 
-> Entry for the iExec Vibe Coding Challenge.
-
 ---
 
 ## References
 
-- [iExec Nox Protocol docs](https://docs.iex.ec/nox-protocol/getting-started/welcome)
-- [Confidential Token + Faucet demo](https://cdefi.iex.ec/)
-- [iExec Nox npm packages](https://www.npmjs.com/org/iexec-nox)
-- [iExec Developer Linktree](https://linktr.ee/iexec.tech)
+- [Fhenix CoFHE Documentation](https://docs.fhenix.zone/)
+- [@cofhe/sdk npm package](https://www.npmjs.com/package/@cofhe/sdk)
 - [ChainGPT documentation](https://chaingpt.org)
-- [ERC-7984 — Confidential Token Extension](https://eips.ethereum.org/)
+- [LI.FI Earn API](https://docs.li.fi/)
+- [Arbitrum Sepolia Faucet](https://cloud.google.com/application/web3/faucet/ethereum/sepolia)
+- [ERC-4626 Tokenized Vault Standard](https://eips.ethereum.org/EIPS/eip-4626)
 
 ---
 
@@ -539,8 +453,8 @@ MIT © 2026 eNIX App contributors. See [LICENSE](LICENSE).
 
 <div align="center">
 
-**Built for the [iExec Vibe Coding Challenge](https://dorahacks.io/hackathon/vibe-coding-iexec/) · April 2026**
+**Built for the iExec Vibe Coding Challenge · April 2026 · Migrated to Fhenix CoFHE**
 
-**Powered by Nox · Self-Sovereign cUSDC · Deployed on Arbitrum Sepolia**
+**Powered by Fhenix · Fully Homomorphic Encryption · Deployed on Arbitrum Sepolia**
 
 </div>
