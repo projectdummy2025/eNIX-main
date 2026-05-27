@@ -2,7 +2,7 @@ import type { Chain, Token } from "@/types";
 
 export const mockTokens: Token[] = [
   { symbol: "USDC", name: "USD Coin", usdPrice: 1 },
-  { symbol: "RLC", name: "iExec RLC", usdPrice: 3.5 },
+  { symbol: "RLC", name: "RLC", usdPrice: 3.5 },
 ];
 
 export const mockChains: Chain[] = [
