@@ -9,10 +9,10 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - Root is the Next.js app. `package.json` lives at `/`.
 - Path alias `@/*` maps to `./src/*`.
 - `pnpm-workspace.yaml` only controls built dependencies — no workspace packages.
-- Foundry contracts in `foundry/` (separate workspace, solc 0.8.24, EVM cancun).
-  - Build: `cd foundry && forge build`
-  - Test: `cd foundry && forge test -vv`
-  - Deploy: `forge script script/DeployNoxVaults.s.sol --rpc-url arbitrum_sepolia --broadcast`
+- Foundry contracts in `foundry/` (separate workspace, solc 0.8.28, EVM cancun).
+  - Build: `cd foundry && ~/.foundry/bin/forge build --skip test`
+  - Test: `cd foundry && ~/.foundry/bin/forge test -vv`
+  - Deploy: `cd foundry && ~/.foundry/bin/forge script script/DeployFhenixVaults.s.sol --rpc-url arbitrum_sepolia --broadcast`
 
 ## Setup
 
@@ -25,6 +25,14 @@ pnpm dev
 Required env vars: `PROJECT_ID` (WalletConnect), `NEXT_PUBLIC_APP_URL`.  
 Optional: `CHAINGPT_API_KEY` (ChainGPT AI), `LIFI_API_KEY` (LI.FI earn).
 
+## Build
+
+Turbopack hangs on macOS. Use webpack:
+
+```bash
+pnpm next build --webpack
+```
+
 ## Lint & Format
 
 **Biome** (not ESLint/Prettier). No `pnpm typecheck` script.
@@ -36,11 +44,11 @@ pnpm format # write changes
 
 ## Tech Stack
 
-- Next.js 16 (App Router, Turbopack) + React 19 + React Compiler
+- Next.js 16 (App Router, use `--webpack` flag) + React 19 + React Compiler
 - Tailwind CSS 4 + PostCSS, motion (Framer Motion)
 - wagmi v2 + viem + RainbowKit + TanStack Query 5 (30s staleTime)
 - Zustand for client state
-- **Two protocols**: Nox Protocol (confidential vaults) + LI.FI (general earn/portfolio)
+- **Two protocols**: Fhenix CoFHE (confidential vaults) + LI.FI (general earn/portfolio)
 
 ## Key Architecture
 
@@ -48,23 +56,23 @@ pnpm format # write changes
 
 | Pattern | Purpose | Upstream |
 |---|---|---|
-| `src/app/api/nox/{vaults,quote,meta,portfolio}/` | Confidential vault aggregator | On-chain reads (viem public client) + hardcoded |
+| `src/app/api/fhenix/{vaults,quote,meta,portfolio}/` | Confidential vault aggregator | On-chain reads (viem public client) + hardcoded |
 | `src/app/api/earn/{vaults,quote,portfolio}/` | General earn | LI.FI `earn.li.fi/v1` |
 | `src/app/api/lifi/meta/` | Chain/token/protocol metadata | LI.FI `li.quest/v1` |
 
-Nox vault data is computed from on-chain reads (2 hardcoded vaults: cUSDC, cRLC).  
+Fhenix vault data is computed from on-chain reads (2 deployed vaults: fUSDC, fRLC).  
 LI.FI earn vaults are pass-through proxies with filters.
 
-### Nox Protocol (confidential)
+### Fhenix Protocol (confidential)
 
-- Libs: `src/lib/nox-{vault,meta,quote,handle}.ts`
-- Stores: `src/stores/nox-{deposit,withdraw}-store.ts`
-- Confidential tokens: cUSDC, cRLC (ERC-7984) on Arbitrum Sepolia (421614)
-- Contract addresses in `src/lib/nox-types.ts` → `NOX_CONTRACTS`, `NOX_VAULTS`
-- Handle client (client-side only, EIP-712 based): `createNoxHandleClientFromWagmi()` / `createNoxHandleClientFromWindow()` from `@/lib/nox-handle`
-- Deposit flow (4 sequential txns): approve(underlying, cToken) → wrap → approve(cToken, vault) → deposit
-- Withdraw flow (2 txns): redeem(shares) → unwrap(amount, handle, handleProof)
-- Balance decryption: `client.decrypt(handle)` or `client.publicDecrypt(handle)`
+- Libs: `src/lib/fhenix-{client,vault,meta,quote,types}.ts`
+- Stores: `src/stores/fhenix-{deposit,withdraw}-store.ts`
+- Confidential tokens: USDC, RLC on Arbitrum Sepolia (421614), encrypted via CoFHE
+- Contract addresses in `src/lib/fhenix-types.ts` → `FHENIX_CONTRACTS`, `FHENIX_VAULTS`
+- CoFHE client (client-side only): `connectCofheClient()` from `@/lib/fhenix-client`
+- Deposit flow (2 txns): approve(ERC-20, vault) → encrypt amount → deposit
+- Withdraw flow (1 txn): encrypt shares → withdraw
+- Balance decryption: `client.decryptForView(ctHash)` via CoFHE SDK
 
 ### LI.FI (general earn)
 
@@ -90,3 +98,12 @@ LI.FI earn vaults are pass-through proxies with filters.
 ### Theme
 
 - Dark/light toggle persisted under `enix-app-theme` in localStorage (default: dark). Bootstrapped via inline `<script>` in `<head>` to prevent flash.
+
+## Deployed Contracts (Arbitrum Sepolia 421614)
+
+| Contract | Address |
+|---|---|
+| fUSDC Vault | `0x6d4d017dE8d0A36dce7856Ee989624C6A18cD9Ea` |
+| fRLC Vault | `0xD04A92C83AFe71f4f69F9FAD0A33229BFBdE33E6` |
+| USDC (testnet) | `0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d` |
+| RLC (testnet) | `0x9923eD3cbd90CD78b910c475f9A731A6e0b8C963` |
