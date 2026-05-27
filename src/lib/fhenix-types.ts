@@ -123,8 +123,8 @@ export const FHENIX_CONTRACTS = {
 } as const;
 
 export const FHENIX_VAULTS = {
-  USDC_VAULT: "0x0000000000000000000000000000000000000000",
-  RLC_VAULT: "0x0000000000000000000000000000000000000000",
+  USDC_VAULT: "0x6d4d017dE8d0A36dce7856Ee989624C6A18cD9Ea",
+  RLC_VAULT: "0xD04A92C83AFe71f4f69F9FAD0A33229BFBdE33E6",
 } as const;
 
 export function getVaultForToken(tokenAddress: string): `0x${string}` {
@@ -140,8 +140,8 @@ export const FHENIX_TOKENS: Record<number, FhenixToken[]> = {
   421614: [
     {
       address: FHENIX_CONTRACTS.USDC,
-      symbol: "cUSDC",
-      name: "Confidential USDC",
+      symbol: "USDC",
+      name: "USD Coin",
       decimals: 6,
       logoURI:
         "https://tokens.1inch.io/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.png",
@@ -150,8 +150,8 @@ export const FHENIX_TOKENS: Record<number, FhenixToken[]> = {
     },
     {
       address: FHENIX_CONTRACTS.RLC,
-      symbol: "cRLC",
-      name: "Confidential RLC",
+      symbol: "RLC",
+      name: "RLC",
       decimals: 9,
       logoURI: "/Assets/Images/Logo-Coin/rlc-logo.svg",
       priceUSD: "3.5",
