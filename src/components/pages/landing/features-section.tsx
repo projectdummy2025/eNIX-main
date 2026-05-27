@@ -221,20 +221,20 @@ function OneClickVisual() {
 const features = [
   {
     emoji: "🔒",
-    title: "Nox Protocol & TEE",
+    title: "Fhenix CoFHE & FHE",
     description:
-      "Powered by iExec Nox and Trusted Execution Environments (TEE). Your individual balances and strategies stay cryptographically hidden while aggregate TVL remains public.",
+      "Powered by Fhenix CoFHE and Fully Homomorphic Encryption (FHE). Your individual balances and strategies stay cryptographically hidden while aggregate TVL remains public.",
     visual: ConfidentialVaultVisual,
     tags: [
       {
         icon: "/Assets/Images/Logo-Coin/usdt-logo.svg",
         rate: "5–12%",
-        name: "cUSDC",
+        name: "fUSDC",
       },
       {
         icon: "/Assets/Images/Logo-Coin/rlc-logo.svg",
         rate: "8–15%",
-        name: "cRLC",
+        name: "fRLC",
       },
     ],
   },
@@ -248,9 +248,9 @@ const features = [
   },
   {
     emoji: "🛡️",
-    title: "Confidential Tokens",
+    title: "Confidential Balances",
     description:
-      "ERC-7984 confidential tokens (cUSDC, cRLC) wrap your public assets into private ones. Enjoy the security of confidential transfers without sacrificing DeFi composability.",
+      "FHE-encrypted balances keep your deposits private on-chain. Only you hold the key to decrypt your position — no TEE, no trusted third party required.",
     visual: OneClickVisual,
   },
 ];
