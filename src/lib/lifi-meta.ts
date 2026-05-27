@@ -37,14 +37,14 @@ export async function fetchLifiMeta(
   signal?: AbortSignal,
 ): Promise<LifiMetaResponse> {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || window.location.origin;
-  const url = new URL("/api/nox/meta", baseUrl);
+  const url = new URL("/api/lifi/meta", baseUrl);
   const response = await fetch(url.toString(), {
     signal,
     cache: "no-store",
     headers: { accept: "application/json" },
   });
   if (!response.ok) {
-    throw new Error(`nox_meta_failed_${response.status}`);
+    throw new Error(`lifi_meta_failed_${response.status}`);
   }
   const raw = await response.json();
   return {
