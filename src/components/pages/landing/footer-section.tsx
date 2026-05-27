@@ -155,7 +155,7 @@ export function FooterSection() {
             opacity: 0.05,
           }}
         >
-          iEX AI
+          eNIX App
         </p>
       </div>
 
