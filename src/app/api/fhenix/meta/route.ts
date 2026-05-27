@@ -29,7 +29,7 @@ const FHENIX_META_TOKENS: Record<number, FhenixToken[]> = {
     {
       address: FHENIX_CONTRACTS.RLC,
       symbol: "RLC",
-      name: "iExec RLC",
+      name: "RLC",
       decimals: 9,
       logoURI: "/Assets/Images/Logo-Coin/rlc-logo.svg",
       priceUSD: "3.5",
