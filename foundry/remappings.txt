@@ -1,0 +1,6 @@
+@openzeppelin/contracts/=lib/node_modules/@openzeppelin/contracts/
+@fhenixprotocol/cofhe-contracts/=lib/node_modules/@fhenixprotocol/cofhe-contracts/
+@cofhe/foundry-plugin/=lib/node_modules/@cofhe/foundry-plugin/
+@cofhe/mock-contracts/=lib/node_modules/@cofhe/mock-contracts/
+hardhat/=lib/hardhat/
+forge-std/=lib/forge-std/src/
