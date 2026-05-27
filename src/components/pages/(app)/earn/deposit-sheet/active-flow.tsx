@@ -365,7 +365,7 @@ export function ActiveFlow({
       <div className="flex flex-col items-center gap-3 py-10">
         <FiLoader className="h-6 w-6 animate-spin text-brand" />
         <p className="text-sm font-semibold text-main">
-          Finding the best route on Nox Protocol&hellip;
+          Finding the best route on Fhenix CoFHE&hellip;
         </p>
         <p className="text-xs text-muted">
           {isCrossChain
@@ -589,9 +589,8 @@ export function ActiveFlow({
               Cross-chain deposit
             </p>
             <p className="mt-0.5 text-[11px] text-muted">
-              Nox Protocol will bridge your {token.symbol} from{" "}
-              {chain.shortName} to {vault.chainShortName} and deposit it into{" "}
-              {vault.protocol} in a single signed transaction.
+              Your {token.symbol} will be encrypted via Fhenix CoFHE and deposited into{" "}
+              {vault.protocol} on {vault.chainShortName}.
             </p>
           </div>
         </div>
@@ -660,7 +659,7 @@ export function ActiveFlow({
       <div className="flex flex-wrap items-center justify-center gap-1.5 text-[10px] text-faint">
         <span className="inline-flex items-center gap-1">
           Powered by
-          <span className="font-semibold text-muted">Nox Protocol</span>
+          <span className="font-semibold text-muted">Fhenix CoFHE</span>
         </span>
         <span>&middot;</span>
         <span className="inline-flex items-center gap-1">
