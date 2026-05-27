@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { label: "How It Works", href: "#features" },
   {
     label: "Docs",
-    href: "https://docs.iex.ec/nox-protocol/getting-started/welcome",
+    href: "https://docs.fhenix.zone",
     external: true,
   },
 ];
