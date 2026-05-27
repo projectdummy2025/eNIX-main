@@ -1,0 +1,1718 @@
+{
+  "_format": "",
+  "paths": {
+    "artifacts": "foundry/out",
+    "build_infos": "foundry/out/build-info",
+    "sources": "foundry/src",
+    "tests": "foundry/test",
+    "scripts": "foundry/script",
+    "libraries": ["foundry/lib", "node_modules"]
+  },
+  "files": {
+    "foundry/lib/forge-std/src/Base.sol": {
+      "lastModificationDate": 1779877337464,
+      "contentHash": "057da15af4544b7a",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/Base.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/Vm.sol"
+      ],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "CommonBase": {
+          "0.8.25": {
+            "default": {
+              "path": "Base.sol/CommonBase.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "ScriptBase": {
+          "0.8.25": {
+            "default": {
+              "path": "Base.sol/ScriptBase.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "TestBase": {
+          "0.8.25": {
+            "default": {
+              "path": "Base.sol/TestBase.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/Script.sol": {
+      "lastModificationDate": 1779877337465,
+      "contentHash": "f2808a0770d1b6a2",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/Script.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdStyle.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "foundry/lib/forge-std/src/safeconsole.sol"
+      ],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "Script": {
+          "0.8.25": {
+            "default": {
+              "path": "Script.sol/Script.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdAssertions.sol": {
+      "lastModificationDate": 1779877337466,
+      "contentHash": "fd31761b7a5b1a8b",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdAssertions.sol",
+      "imports": ["foundry/lib/forge-std/src/Vm.sol"],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "StdAssertions": {
+          "0.8.25": {
+            "default": {
+              "path": "StdAssertions.sol/StdAssertions.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdChains.sol": {
+      "lastModificationDate": 1779877337466,
+      "contentHash": "0c1989d5064f8ddf",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdChains.sol",
+      "imports": ["foundry/lib/forge-std/src/Vm.sol"],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "StdChains": {
+          "0.8.25": {
+            "default": {
+              "path": "StdChains.sol/StdChains.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdCheats.sol": {
+      "lastModificationDate": 1779877337466,
+      "contentHash": "c1a8a8aaa0d07a9b",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdCheats.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol"
+      ],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "StdCheats": {
+          "0.8.25": {
+            "default": {
+              "path": "StdCheats.sol/StdCheats.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "StdCheatsSafe": {
+          "0.8.25": {
+            "default": {
+              "path": "StdCheats.sol/StdCheatsSafe.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdConstants.sol": {
+      "lastModificationDate": 1779877337467,
+      "contentHash": "6e64e3e0f1e270b1",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdConstants.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol"
+      ],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "StdConstants": {
+          "0.8.25": {
+            "default": {
+              "path": "StdConstants.sol/StdConstants.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdError.sol": {
+      "lastModificationDate": 1779877337468,
+      "contentHash": "1c856665ab3f24ad",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdError.sol",
+      "imports": [],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "stdError": {
+          "0.8.25": {
+            "default": {
+              "path": "StdError.sol/stdError.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdInvariant.sol": {
+      "lastModificationDate": 1779877337468,
+      "contentHash": "b482f161ff5afe1f",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdInvariant.sol",
+      "imports": [],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "StdInvariant": {
+          "0.8.25": {
+            "default": {
+              "path": "StdInvariant.sol/StdInvariant.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdJson.sol": {
+      "lastModificationDate": 1779877337469,
+      "contentHash": "f5a3ad0946d95283",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdJson.sol",
+      "imports": ["foundry/lib/forge-std/src/Vm.sol"],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "stdJson": {
+          "0.8.25": {
+            "default": {
+              "path": "StdJson.sol/stdJson.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdMath.sol": {
+      "lastModificationDate": 1779877337469,
+      "contentHash": "a1c513020c710db6",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdMath.sol",
+      "imports": [],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "stdMath": {
+          "0.8.25": {
+            "default": {
+              "path": "StdMath.sol/stdMath.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdStorage.sol": {
+      "lastModificationDate": 1779877337470,
+      "contentHash": "847d6efe5e5f0088",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdStorage.sol",
+      "imports": ["foundry/lib/forge-std/src/Vm.sol"],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "stdStorage": {
+          "0.8.25": {
+            "default": {
+              "path": "StdStorage.sol/stdStorage.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "stdStorageSafe": {
+          "0.8.25": {
+            "default": {
+              "path": "StdStorage.sol/stdStorageSafe.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdStyle.sol": {
+      "lastModificationDate": 1779877337470,
+      "contentHash": "c527571c73ed6f30",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdStyle.sol",
+      "imports": ["foundry/lib/forge-std/src/Vm.sol"],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "StdStyle": {
+          "0.8.25": {
+            "default": {
+              "path": "StdStyle.sol/StdStyle.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdToml.sol": {
+      "lastModificationDate": 1779877337470,
+      "contentHash": "e53a8ef003bfe8a2",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdToml.sol",
+      "imports": ["foundry/lib/forge-std/src/Vm.sol"],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "stdToml": {
+          "0.8.25": {
+            "default": {
+              "path": "StdToml.sol/stdToml.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/StdUtils.sol": {
+      "lastModificationDate": 1779877337471,
+      "contentHash": "2b3875c15dc0cae3",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/StdUtils.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol"
+      ],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "StdUtils": {
+          "0.8.25": {
+            "default": {
+              "path": "StdUtils.sol/StdUtils.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/Test.sol": {
+      "lastModificationDate": 1779877337471,
+      "contentHash": "bd0e131f71fa5665",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/Test.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/StdAssertions.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/StdError.sol",
+        "foundry/lib/forge-std/src/StdInvariant.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdStyle.sol",
+        "foundry/lib/forge-std/src/StdToml.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "foundry/lib/forge-std/src/safeconsole.sol"
+      ],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "Test": {
+          "0.8.25": {
+            "default": {
+              "path": "Test.sol/Test.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/Vm.sol": {
+      "lastModificationDate": 1779877337472,
+      "contentHash": "9843952acc0887b4",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/Vm.sol",
+      "imports": [],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "Vm": {
+          "0.8.25": {
+            "default": {
+              "path": "Vm.sol/Vm.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "VmSafe": {
+          "0.8.25": {
+            "default": {
+              "path": "Vm.sol/VmSafe.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/console.sol": {
+      "lastModificationDate": 1779877337473,
+      "contentHash": "cbc8a541417333ad",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/console.sol",
+      "imports": [],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "console": {
+          "0.8.25": {
+            "default": {
+              "path": "console.sol/console.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/console2.sol": {
+      "lastModificationDate": 1779877337473,
+      "contentHash": "fb84555cebe27360",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/console2.sol",
+      "imports": ["foundry/lib/forge-std/src/console.sol"],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {},
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/interfaces/IMulticall3.sol": {
+      "lastModificationDate": 1779877337479,
+      "contentHash": "731463c8fd01e759",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+      "imports": [],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "IMulticall3": {
+          "0.8.25": {
+            "default": {
+              "path": "IMulticall3.sol/IMulticall3.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/lib/forge-std/src/safeconsole.sol": {
+      "lastModificationDate": 1779877337482,
+      "contentHash": "075ad54247fa474a",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/lib/forge-std/src/safeconsole.sol",
+      "imports": [],
+      "versionRequirement": ">=0.8.13, <0.9.0",
+      "artifacts": {
+        "safeconsole": {
+          "0.8.25": {
+            "default": {
+              "path": "safeconsole.sol/safeconsole.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/script/DeployFhenixVaults.s.sol": {
+      "lastModificationDate": 1779877438275,
+      "contentHash": "1d81bee480075742",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/script/DeployFhenixVaults.s.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/Script.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdStyle.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "foundry/lib/forge-std/src/safeconsole.sol",
+        "foundry/src/FhenixYieldVault.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/FHE.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/ICofhe.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC1363.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC165.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+        "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": "^0.8.25",
+      "artifacts": {
+        "DeployFhenixVaults": {
+          "0.8.25": {
+            "default": {
+              "path": "DeployFhenixVaults.s.sol/DeployFhenixVaults.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/src/FhenixYieldVault.sol": {
+      "lastModificationDate": 1779877468411,
+      "contentHash": "e1d939398756bed2",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/src/FhenixYieldVault.sol",
+      "imports": [
+        "node_modules/@fhenixprotocol/cofhe-contracts/FHE.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/ICofhe.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC1363.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC165.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+        "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": "^0.8.25",
+      "artifacts": {
+        "FhenixYieldVault": {
+          "0.8.25": {
+            "default": {
+              "path": "FhenixYieldVault.sol/FhenixYieldVault.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "foundry/test/FhenixYieldVault.t.sol": {
+      "lastModificationDate": 1779877541609,
+      "contentHash": "46c373678fba15ab",
+      "interfaceReprHash": null,
+      "sourceName": "foundry/test/FhenixYieldVault.t.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/StdAssertions.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/StdError.sol",
+        "foundry/lib/forge-std/src/StdInvariant.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdStyle.sol",
+        "foundry/lib/forge-std/src/StdToml.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Test.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "foundry/lib/forge-std/src/safeconsole.sol",
+        "foundry/src/FhenixYieldVault.sol",
+        "node_modules/@cofhe/foundry-plugin/contracts/CofheClient.sol",
+        "node_modules/@cofhe/foundry-plugin/contracts/CofheTest.sol",
+        "node_modules/@cofhe/foundry-plugin/contracts/MockThresholdNetworkSigner.sol",
+        "node_modules/@cofhe/foundry-plugin/contracts/MockZkVerifierSigner.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockACL.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockCoFHE.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockTaskManager.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockThresholdNetwork.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockZkVerifier.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/Permissioned.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/FHE.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/ICofhe.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC1271.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC1363.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC165.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC5267.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC7913.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/ShortStrings.sol",
+        "node_modules/@openzeppelin/contracts/utils/StorageSlot.sol",
+        "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/EIP712.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/SignatureChecker.sol",
+        "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": "^0.8.25",
+      "artifacts": {
+        "FhenixYieldVaultTest": {
+          "0.8.25": {
+            "default": {
+              "path": "FhenixYieldVault.t.sol/FhenixYieldVaultTest.json",
+              "build_id": "c27fa2877a9b300b"
+            }
+          }
+        },
+        "MockERC20": {
+          "0.8.25": {
+            "default": {
+              "path": "FhenixYieldVault.t.sol/MockERC20.json",
+              "build_id": "c27fa2877a9b300b"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@cofhe/foundry-plugin/contracts/CofheClient.sol": {
+      "lastModificationDate": 1779877264670,
+      "contentHash": "f4f5cf403bee01a9",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@cofhe/foundry-plugin/contracts/CofheClient.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/StdAssertions.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/StdError.sol",
+        "foundry/lib/forge-std/src/StdInvariant.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdStyle.sol",
+        "foundry/lib/forge-std/src/StdToml.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Test.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "foundry/lib/forge-std/src/safeconsole.sol",
+        "node_modules/@cofhe/foundry-plugin/contracts/MockThresholdNetworkSigner.sol",
+        "node_modules/@cofhe/foundry-plugin/contracts/MockZkVerifierSigner.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockACL.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockCoFHE.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockTaskManager.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockThresholdNetwork.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockZkVerifier.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/Permissioned.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/FHE.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/ICofhe.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC1271.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC5267.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC7913.sol",
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/ShortStrings.sol",
+        "node_modules/@openzeppelin/contracts/utils/StorageSlot.sol",
+        "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/EIP712.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/SignatureChecker.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "CofheClient": {
+          "0.8.25": {
+            "default": {
+              "path": "CofheClient.sol/CofheClient.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@cofhe/foundry-plugin/contracts/CofheTest.sol": {
+      "lastModificationDate": 1779877264670,
+      "contentHash": "682a2603db56a03e",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@cofhe/foundry-plugin/contracts/CofheTest.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/StdAssertions.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/StdError.sol",
+        "foundry/lib/forge-std/src/StdInvariant.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdStyle.sol",
+        "foundry/lib/forge-std/src/StdToml.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Test.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "foundry/lib/forge-std/src/safeconsole.sol",
+        "node_modules/@cofhe/foundry-plugin/contracts/CofheClient.sol",
+        "node_modules/@cofhe/foundry-plugin/contracts/MockThresholdNetworkSigner.sol",
+        "node_modules/@cofhe/foundry-plugin/contracts/MockZkVerifierSigner.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockACL.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockCoFHE.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockTaskManager.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockThresholdNetwork.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockZkVerifier.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/Permissioned.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/FHE.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/ICofhe.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC1271.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC5267.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC7913.sol",
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/ShortStrings.sol",
+        "node_modules/@openzeppelin/contracts/utils/StorageSlot.sol",
+        "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/EIP712.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/SignatureChecker.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "CofheTest": {
+          "0.8.25": {
+            "default": {
+              "path": "CofheTest.sol/CofheTest.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@cofhe/foundry-plugin/contracts/MockThresholdNetworkSigner.sol": {
+      "lastModificationDate": 1779877264673,
+      "contentHash": "71962d23684726fc",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@cofhe/foundry-plugin/contracts/MockThresholdNetworkSigner.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/StdAssertions.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/StdError.sol",
+        "foundry/lib/forge-std/src/StdInvariant.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdStyle.sol",
+        "foundry/lib/forge-std/src/StdToml.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Test.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "foundry/lib/forge-std/src/safeconsole.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockCoFHE.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/FHE.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/ICofhe.sol",
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": ">=0.8.19, <0.9.0",
+      "artifacts": {
+        "MockThresholdNetworkSigner": {
+          "0.8.25": {
+            "default": {
+              "path": "MockThresholdNetworkSigner.sol/MockThresholdNetworkSigner.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@cofhe/foundry-plugin/contracts/MockZkVerifierSigner.sol": {
+      "lastModificationDate": 1779877264675,
+      "contentHash": "31ac8fee4c917512",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@cofhe/foundry-plugin/contracts/MockZkVerifierSigner.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/Base.sol",
+        "foundry/lib/forge-std/src/StdAssertions.sol",
+        "foundry/lib/forge-std/src/StdChains.sol",
+        "foundry/lib/forge-std/src/StdCheats.sol",
+        "foundry/lib/forge-std/src/StdConstants.sol",
+        "foundry/lib/forge-std/src/StdError.sol",
+        "foundry/lib/forge-std/src/StdInvariant.sol",
+        "foundry/lib/forge-std/src/StdJson.sol",
+        "foundry/lib/forge-std/src/StdMath.sol",
+        "foundry/lib/forge-std/src/StdStorage.sol",
+        "foundry/lib/forge-std/src/StdStyle.sol",
+        "foundry/lib/forge-std/src/StdToml.sol",
+        "foundry/lib/forge-std/src/StdUtils.sol",
+        "foundry/lib/forge-std/src/Test.sol",
+        "foundry/lib/forge-std/src/Vm.sol",
+        "foundry/lib/forge-std/src/console.sol",
+        "foundry/lib/forge-std/src/console2.sol",
+        "foundry/lib/forge-std/src/interfaces/IMulticall3.sol",
+        "foundry/lib/forge-std/src/safeconsole.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockCoFHE.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/FHE.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/ICofhe.sol",
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": ">=0.8.19, <0.9.0",
+      "artifacts": {
+        "MockZkVerifierSigner": {
+          "0.8.25": {
+            "default": {
+              "path": "MockZkVerifierSigner.sol/MockZkVerifierSigner.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@cofhe/mock-contracts/contracts/MockACL.sol": {
+      "lastModificationDate": 1779877265077,
+      "contentHash": "9ede1383ba44aa18",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@cofhe/mock-contracts/contracts/MockACL.sol",
+      "imports": [
+        "node_modules/@cofhe/mock-contracts/contracts/Permissioned.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/FHE.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/ICofhe.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC1271.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC5267.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC7913.sol",
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/ShortStrings.sol",
+        "node_modules/@openzeppelin/contracts/utils/StorageSlot.sol",
+        "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/EIP712.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/SignatureChecker.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": ">=0.8.19, <0.9.0",
+      "artifacts": {
+        "MockACL": {
+          "0.8.25": {
+            "default": {
+              "path": "MockACL.sol/MockACL.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@cofhe/mock-contracts/contracts/MockCoFHE.sol": {
+      "lastModificationDate": 1779877265078,
+      "contentHash": "dba6b04d859da10d",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@cofhe/mock-contracts/contracts/MockCoFHE.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/console.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/FHE.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/ICofhe.sol",
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": ">=0.8.25, <0.9.0",
+      "artifacts": {
+        "MockCoFHE": {
+          "0.8.25": {
+            "default": {
+              "path": "MockCoFHE.sol/MockCoFHE.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@cofhe/mock-contracts/contracts/MockTaskManager.sol": {
+      "lastModificationDate": 1779877265078,
+      "contentHash": "fd44884f506d9fb4",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@cofhe/mock-contracts/contracts/MockTaskManager.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/console.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockACL.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockCoFHE.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/Permissioned.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/FHE.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/ICofhe.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC1271.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC5267.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC7913.sol",
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/ShortStrings.sol",
+        "node_modules/@openzeppelin/contracts/utils/StorageSlot.sol",
+        "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/EIP712.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/SignatureChecker.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": ">=0.8.25, <0.9.0",
+      "artifacts": {
+        "MockTaskManager": {
+          "0.8.25": {
+            "default": {
+              "path": "MockTaskManager.sol/MockTaskManager.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "TMCommon": {
+          "0.8.25": {
+            "default": {
+              "path": "MockTaskManager.sol/TMCommon.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@cofhe/mock-contracts/contracts/MockThresholdNetwork.sol": {
+      "lastModificationDate": 1779877265079,
+      "contentHash": "00888b808db07578",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@cofhe/mock-contracts/contracts/MockThresholdNetwork.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/console.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockACL.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockCoFHE.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockTaskManager.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/Permissioned.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/FHE.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/ICofhe.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC1271.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC5267.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC7913.sol",
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/ShortStrings.sol",
+        "node_modules/@openzeppelin/contracts/utils/StorageSlot.sol",
+        "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/EIP712.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/SignatureChecker.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": ">=0.8.19, <0.9.0",
+      "artifacts": {
+        "MockThresholdNetwork": {
+          "0.8.25": {
+            "default": {
+              "path": "MockThresholdNetwork.sol/MockThresholdNetwork.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@cofhe/mock-contracts/contracts/MockZkVerifier.sol": {
+      "lastModificationDate": 1779877265079,
+      "contentHash": "f9f1b74589ba42a5",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@cofhe/mock-contracts/contracts/MockZkVerifier.sol",
+      "imports": [
+        "foundry/lib/forge-std/src/console.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockACL.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockCoFHE.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/MockTaskManager.sol",
+        "node_modules/@cofhe/mock-contracts/contracts/Permissioned.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/FHE.sol",
+        "node_modules/@fhenixprotocol/cofhe-contracts/ICofhe.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC1271.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC5267.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC7913.sol",
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/ShortStrings.sol",
+        "node_modules/@openzeppelin/contracts/utils/StorageSlot.sol",
+        "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/EIP712.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/SignatureChecker.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": ">=0.8.19, <0.9.0",
+      "artifacts": {
+        "MockZkVerifier": {
+          "0.8.25": {
+            "default": {
+              "path": "MockZkVerifier.sol/MockZkVerifier.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@cofhe/mock-contracts/contracts/Permissioned.sol": {
+      "lastModificationDate": 1779877265080,
+      "contentHash": "7c6231885b775ae1",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@cofhe/mock-contracts/contracts/Permissioned.sol",
+      "imports": [
+        "node_modules/@openzeppelin/contracts/interfaces/IERC1271.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC5267.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC7913.sol",
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/ShortStrings.sol",
+        "node_modules/@openzeppelin/contracts/utils/StorageSlot.sol",
+        "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/EIP712.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/SignatureChecker.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": ">=0.8.19, <0.9.0",
+      "artifacts": {
+        "IPermissionCustomIdValidator": {
+          "0.8.25": {
+            "default": {
+              "path": "Permissioned.sol/IPermissionCustomIdValidator.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "MockPermissioned": {
+          "0.8.25": {
+            "default": {
+              "path": "Permissioned.sol/MockPermissioned.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "PermissionUtils": {
+          "0.8.25": {
+            "default": {
+              "path": "Permissioned.sol/PermissionUtils.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@fhenixprotocol/cofhe-contracts/FHE.sol": {
+      "lastModificationDate": 1779877265054,
+      "contentHash": "3c8277a655176c79",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@fhenixprotocol/cofhe-contracts/FHE.sol",
+      "imports": [
+        "node_modules/@fhenixprotocol/cofhe-contracts/ICofhe.sol",
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": ">=0.8.19, <0.9.0",
+      "artifacts": {
+        "BindingsEaddress": {
+          "0.8.25": {
+            "default": {
+              "path": "FHE.sol/BindingsEaddress.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "BindingsEbool": {
+          "0.8.25": {
+            "default": {
+              "path": "FHE.sol/BindingsEbool.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "BindingsEuint128": {
+          "0.8.25": {
+            "default": {
+              "path": "FHE.sol/BindingsEuint128.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "BindingsEuint16": {
+          "0.8.25": {
+            "default": {
+              "path": "FHE.sol/BindingsEuint16.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "BindingsEuint32": {
+          "0.8.25": {
+            "default": {
+              "path": "FHE.sol/BindingsEuint32.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "BindingsEuint64": {
+          "0.8.25": {
+            "default": {
+              "path": "FHE.sol/BindingsEuint64.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "BindingsEuint8": {
+          "0.8.25": {
+            "default": {
+              "path": "FHE.sol/BindingsEuint8.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "Common": {
+          "0.8.25": {
+            "default": {
+              "path": "FHE.sol/Common.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "FHE": {
+          "0.8.25": {
+            "default": {
+              "path": "FHE.sol/FHE.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "Impl": {
+          "0.8.25": {
+            "default": {
+              "path": "FHE.sol/Impl.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@fhenixprotocol/cofhe-contracts/ICofhe.sol": {
+      "lastModificationDate": 1779877265056,
+      "contentHash": "ecf53995247b04ad",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@fhenixprotocol/cofhe-contracts/ICofhe.sol",
+      "imports": [],
+      "versionRequirement": ">=0.8.25, <0.9.0",
+      "artifacts": {
+        "ITaskManager": {
+          "0.8.25": {
+            "default": {
+              "path": "ICofhe.sol/ITaskManager.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        },
+        "Utils": {
+          "0.8.25": {
+            "default": {
+              "path": "ICofhe.sol/Utils.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/interfaces/IERC1271.sol": {
+      "lastModificationDate": 1777199602219,
+      "contentHash": "f9d7159a11af59a5",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/interfaces/IERC1271.sol",
+      "imports": [],
+      "versionRequirement": ">=0.5.0",
+      "artifacts": {
+        "IERC1271": {
+          "0.8.25": {
+            "default": {
+              "path": "IERC1271.sol/IERC1271.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/interfaces/IERC1363.sol": {
+      "lastModificationDate": 1777199602220,
+      "contentHash": "1822a75bab6fed91",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/interfaces/IERC1363.sol",
+      "imports": [
+        "node_modules/@openzeppelin/contracts/interfaces/IERC165.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol"
+      ],
+      "versionRequirement": ">=0.6.2",
+      "artifacts": {
+        "IERC1363": {
+          "0.8.25": {
+            "default": {
+              "path": "IERC1363.sol/IERC1363.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/interfaces/IERC165.sol": {
+      "lastModificationDate": 1777199602222,
+      "contentHash": "1a826f6d4b769022",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/interfaces/IERC165.sol",
+      "imports": [
+        "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol"
+      ],
+      "versionRequirement": ">=0.4.16",
+      "artifacts": {},
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/interfaces/IERC20.sol": {
+      "lastModificationDate": 1777199602229,
+      "contentHash": "e318fc72a6d9cc43",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/interfaces/IERC20.sol",
+      "imports": [
+        "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionRequirement": ">=0.4.16",
+      "artifacts": {},
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/interfaces/IERC5267.sol": {
+      "lastModificationDate": 1777199602238,
+      "contentHash": "b3cbcca16986077c",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/interfaces/IERC5267.sol",
+      "imports": [],
+      "versionRequirement": ">=0.4.16",
+      "artifacts": {
+        "IERC5267": {
+          "0.8.25": {
+            "default": {
+              "path": "IERC5267.sol/IERC5267.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/interfaces/IERC7913.sol": {
+      "lastModificationDate": 1777199602253,
+      "contentHash": "f25266e56e65b9be",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/interfaces/IERC7913.sol",
+      "imports": [],
+      "versionRequirement": ">=0.5.0",
+      "artifacts": {
+        "IERC7913SignatureVerifier": {
+          "0.8.25": {
+            "default": {
+              "path": "IERC7913.sol/IERC7913SignatureVerifier.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1777199602230,
+      "contentHash": "1dcd768972ff31b3",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "imports": [],
+      "versionRequirement": ">=0.4.16",
+      "artifacts": {
+        "IERC20": {
+          "0.8.25": {
+            "default": {
+              "path": "IERC20.sol/IERC20.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+      "lastModificationDate": 1777199602296,
+      "contentHash": "f9342855928500dd",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+      "imports": [
+        "node_modules/@openzeppelin/contracts/interfaces/IERC1363.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC165.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol"
+      ],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "SafeERC20": {
+          "0.8.25": {
+            "default": {
+              "path": "SafeERC20.sol/SafeERC20.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/utils/Bytes.sol": {
+      "lastModificationDate": 1777199601882,
+      "contentHash": "53b1bed4a775315f",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+      "imports": [
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "Bytes": {
+          "0.8.25": {
+            "default": {
+              "path": "Bytes.sol/Bytes.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/utils/Panic.sol": {
+      "lastModificationDate": 1777199602266,
+      "contentHash": "cfb5098ef78673ff",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+      "imports": [],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "Panic": {
+          "0.8.25": {
+            "default": {
+              "path": "Panic.sol/Panic.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/utils/ShortStrings.sol": {
+      "lastModificationDate": 1777199602296,
+      "contentHash": "28fe1416ed5c57d3",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/utils/ShortStrings.sol",
+      "imports": ["node_modules/@openzeppelin/contracts/utils/StorageSlot.sol"],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "ShortStrings": {
+          "0.8.25": {
+            "default": {
+              "path": "ShortStrings.sol/ShortStrings.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/utils/StorageSlot.sol": {
+      "lastModificationDate": 1777199602309,
+      "contentHash": "261e9fcb6515866e",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/utils/StorageSlot.sol",
+      "imports": [],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "StorageSlot": {
+          "0.8.25": {
+            "default": {
+              "path": "StorageSlot.sol/StorageSlot.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/utils/Strings.sol": {
+      "lastModificationDate": 1777199602312,
+      "contentHash": "9a5296da8305e721",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+      "imports": [
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "Strings": {
+          "0.8.25": {
+            "default": {
+              "path": "Strings.sol/Strings.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol": {
+      "lastModificationDate": 1777199601898,
+      "contentHash": "52f65a67c1836482",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+      "imports": [],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "ECDSA": {
+          "0.8.25": {
+            "default": {
+              "path": "ECDSA.sol/ECDSA.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/utils/cryptography/EIP712.sol": {
+      "lastModificationDate": 1777199601898,
+      "contentHash": "694b11e38551d586",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/utils/cryptography/EIP712.sol",
+      "imports": [
+        "node_modules/@openzeppelin/contracts/interfaces/IERC5267.sol",
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/ShortStrings.sol",
+        "node_modules/@openzeppelin/contracts/utils/StorageSlot.sol",
+        "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "EIP712": {
+          "0.8.25": {
+            "default": {
+              "path": "EIP712.sol/EIP712.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol": {
+      "lastModificationDate": 1777199602260,
+      "contentHash": "03a9629e1ee28892",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/utils/cryptography/MessageHashUtils.sol",
+      "imports": [
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/Strings.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "MessageHashUtils": {
+          "0.8.25": {
+            "default": {
+              "path": "MessageHashUtils.sol/MessageHashUtils.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/utils/cryptography/SignatureChecker.sol": {
+      "lastModificationDate": 1777199602297,
+      "contentHash": "2b138f42ad895dc7",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/utils/cryptography/SignatureChecker.sol",
+      "imports": [
+        "node_modules/@openzeppelin/contracts/interfaces/IERC1271.sol",
+        "node_modules/@openzeppelin/contracts/interfaces/IERC7913.sol",
+        "node_modules/@openzeppelin/contracts/utils/Bytes.sol",
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol"
+      ],
+      "versionRequirement": "^0.8.24",
+      "artifacts": {
+        "SignatureChecker": {
+          "0.8.25": {
+            "default": {
+              "path": "SignatureChecker.sol/SignatureChecker.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+      "lastModificationDate": 1777199602222,
+      "contentHash": "021ac46c8076d0ee",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol",
+      "imports": [],
+      "versionRequirement": ">=0.4.16",
+      "artifacts": {
+        "IERC165": {
+          "0.8.25": {
+            "default": {
+              "path": "IERC165.sol/IERC165.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/utils/math/Math.sol": {
+      "lastModificationDate": 1777199602257,
+      "contentHash": "5168acf036b9f448",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/utils/math/Math.sol",
+      "imports": [
+        "node_modules/@openzeppelin/contracts/utils/Panic.sol",
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol"
+      ],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "Math": {
+          "0.8.25": {
+            "default": {
+              "path": "Math.sol/Math.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol": {
+      "lastModificationDate": 1777199602291,
+      "contentHash": "a7f6d9b06e362c01",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol",
+      "imports": [],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "SafeCast": {
+          "0.8.25": {
+            "default": {
+              "path": "SafeCast.sol/SafeCast.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    },
+    "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol": {
+      "lastModificationDate": 1777199602298,
+      "contentHash": "d7e482c0d6f136d7",
+      "interfaceReprHash": null,
+      "sourceName": "node_modules/@openzeppelin/contracts/utils/math/SignedMath.sol",
+      "imports": [
+        "node_modules/@openzeppelin/contracts/utils/math/SafeCast.sol"
+      ],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "SignedMath": {
+          "0.8.25": {
+            "default": {
+              "path": "SignedMath.sol/SignedMath.json",
+              "build_id": "591f60987d047602"
+            }
+          }
+        }
+      },
+      "seenByCompiler": true
+    }
+  },
+  "builds": ["591f60987d047602", "c27fa2877a9b300b"],
+  "profiles": {
+    "default": {
+      "solc": {
+        "optimizer": { "enabled": true, "runs": 200 },
+        "metadata": {
+          "useLiteralContent": false,
+          "bytecodeHash": "ipfs",
+          "appendCBOR": true
+        },
+        "outputSelection": {
+          "*": {
+            "*": [
+              "abi",
+              "evm.bytecode.object",
+              "evm.bytecode.sourceMap",
+              "evm.bytecode.linkReferences",
+              "evm.deployedBytecode.object",
+              "evm.deployedBytecode.sourceMap",
+              "evm.deployedBytecode.linkReferences",
+              "evm.deployedBytecode.immutableReferences",
+              "evm.methodIdentifiers",
+              "metadata"
+            ]
+          }
+        },
+        "evmVersion": "cancun",
+        "viaIR": false,
+        "libraries": {}
+      },
+      "vyper": {
+        "evmVersion": "cancun",
+        "outputSelection": {
+          "*": { "*": ["abi", "evm.bytecode", "evm.deployedBytecode"] }
+        }
+      }
+    }
+  },
+  "preprocessed": false,
+  "mocks": []
+}
