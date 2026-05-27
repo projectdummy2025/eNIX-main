@@ -47,6 +47,6 @@ export async function generateVaultRecommendation(
   apiKey?: string,
   signal?: AbortSignal,
 ): Promise<string> {
-  const prompt = `Based on the user's tokens (${userTokens.join(", ")}) and risk tolerance (${riskTolerance}), recommend the best confidential vault strategy on Nox Protocol (iExec). Consider: APY optimization, TVL safety, time lock preferences, and privacy benefits of confidential tokens (ERC-7984). Focus on Arbitrum ecosystem.`;
+  const prompt = `Based on the user's tokens (${userTokens.join(", ")}) and risk tolerance (${riskTolerance}), recommend the best confidential vault strategy on Fhenix CoFHE. Consider: APY optimization, TVL safety, time lock preferences, and privacy benefits of FHE-encrypted balances. Focus on Arbitrum ecosystem.`;
   return chatWithChainGPT(prompt, apiKey, signal);
 }
