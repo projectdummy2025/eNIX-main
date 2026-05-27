@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.25;
+pragma solidity ^0.8.24;
 
 import { CofheTest } from "@cofhe/foundry-plugin/contracts/CofheTest.sol";
 import { CofheClient } from "@cofhe/foundry-plugin/contracts/CofheClient.sol";
