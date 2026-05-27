@@ -97,7 +97,7 @@ function DepositBody() {
 }
 
 function DepositFlow({ walletAddress }: { walletAddress: `0x${string}` }) {
-  const vault = useFhenixDepositStore((state) => state.vault)!;
+  const vault = useFhenixDepositStore((state) => state.vault);
   const amount = useFhenixDepositStore((state) => state.amount);
   const step = useFhenixDepositStore((state) => state.step);
   const error = useFhenixDepositStore((state) => state.error);
@@ -107,8 +107,10 @@ function DepositFlow({ walletAddress }: { walletAddress: `0x${string}` }) {
   const wagmiConfig = useConfig();
   const currentChainId = useChainId();
   const { switchChainAsync } = useSwitchChain();
-  const isWrongChain = currentChainId !== vault.chainId;
 
+  if (!vault) return null;
+
+  const isWrongChain = currentChainId !== vault.chainId;
   const underlyingSymbol = vault.tokenSymbol.startsWith("c")
     ? vault.tokenSymbol.slice(1)
     : vault.tokenSymbol;
