@@ -254,7 +254,7 @@ export function VaultPickerSheet() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search by token symbol — e.g. cUSDC, cWETH, USDC"
+                  placeholder="Search by token symbol — e.g. fUSDC, RLC, USDC"
                   className="min-w-0 flex-1 bg-transparent text-xs text-main outline-none placeholder:text-faint"
                 />
                 {searchQuery ? (
@@ -305,7 +305,7 @@ export function VaultPickerSheet() {
                 <SkeletonRows />
               ) : searchStatus === "error" ? (
                 <p className="rounded-2xl bg-surface-raised px-4 py-6 text-center text-xs text-muted">
-                  Couldn't reach Nox Protocol. Try again in a moment.
+                  Couldn't reach Fhenix vaults. Try again in a moment.
                 </p>
               ) : filteredResults.length === 0 ? (
                 <p className="rounded-2xl bg-surface-raised px-4 py-6 text-center text-xs text-muted">
