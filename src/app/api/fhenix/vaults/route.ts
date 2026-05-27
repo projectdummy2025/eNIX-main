@@ -52,7 +52,7 @@ export async function GET(request: Request) {
       underlying: FHENIX_CONTRACTS.RLC,
       vault: FHENIX_VAULTS.RLC_VAULT,
       symbol: "RLC",
-      name: "iExec RLC",
+      name: "RLC",
       underlyingPrice: "3.5",
       underlyingLogo: "/Assets/Images/Logo-Coin/rlc-logo.svg",
       underlyingDecimals: 9,
