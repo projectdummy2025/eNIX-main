@@ -37,7 +37,7 @@ export async function GET(request: Request) {
 
   const decimals = isUSDC ? 6 : 9;
   const symbol = isUSDC ? "USDC" : "RLC";
-  const name = isUSDC ? "USD Coin" : "iExec RLC";
+  const name = isUSDC ? "USD Coin" : "RLC";
 
   const steps: FhenixQuoteStep[] = [
     {
