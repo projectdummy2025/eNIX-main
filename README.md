@@ -430,7 +430,6 @@ pnpm dev
 | Name | Role | Links |
 | --- | --- | --- |
 | **Maulana** | Full-stack & contracts | [GitHub](https://github.com/maulana-tech) |
-| **Catur Setyono** | Full-stack | [GitHub](https://github.com/CaturSetyono) |
 
 ---
 
@@ -453,7 +452,6 @@ MIT © 2026 eNIX App contributors. See [LICENSE](LICENSE).
 
 <div align="center">
 
-**Built for the iExec Vibe Coding Challenge · April 2026 · Migrated to Fhenix CoFHE**
 
 **Powered by Fhenix · Fully Homomorphic Encryption · Deployed on Arbitrum Sepolia**
 
